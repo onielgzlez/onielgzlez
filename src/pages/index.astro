@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import ProjectCard from "../components/ProjectCard.astro";
+import Analytics from '@vercel/analytics/astro'
 
 const navLinks = [
   { label: "Proyectos", href: "#proyectos" },
@@ -94,6 +95,7 @@ const year = new Date().getFullYear();
       content="Oniel González — Senior Full-Stack Developer & Tech Lead. Más de 10 años diseñando arquitecturas escalables, aplicaciones web de alto rendimiento e integraciones con IA."
     />
     <meta name="author" content="Oniel González" />
+    <Analytics />
     <title>Oniel González — Senior Full-Stack Developer & Tech Lead</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
