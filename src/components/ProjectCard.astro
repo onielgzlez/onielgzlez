@@ -1,0 +1,102 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  description: string;
+  tags?: string[];
+  linkLabel: string;
+  linkUrl: string;
+  featured?: boolean;
+}
+
+const {
+  index,
+  title,
+  description,
+  tags = [],
+  linkLabel,
+  linkUrl,
+  featured = false,
+} = Astro.props;
+---
+
+<a
+  href={`https://${linkUrl}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[
+    "group reveal relative flex flex-col overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-ink-900 to-ink-850 p-7 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-accent/40 sm:p-8",
+    featured ? "lg:col-span-2 lg:flex-row lg:gap-10" : "",
+  ]}
+>
+  <!-- accent wash on hover -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+    style="background: radial-gradient(120% 120% at 100% 0%, color-mix(in oklab, var(--color-accent) 12%, transparent), transparent 60%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class:list={["flex flex-col", featured ? "lg:w-2/5 lg:shrink-0" : ""]}>
+    <div class="mb-6 flex items-center justify-between">
+      <span class="font-mono text-xs tracking-[0.25em] text-accent/70">
+        {index}
+      </span>
+      <span
+        class="grid h-9 w-9 place-items-center rounded-full border border-line text-mist transition-all duration-500 group-hover:border-accent/50 group-hover:bg-accent/10 group-hover:text-accent"
+        aria-hidden="true"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </span>
+    </div>
+
+    <h3
+      class="font-display text-2xl font-medium leading-tight text-fog transition-colors duration-300 group-hover:text-accent sm:text-3xl"
+    >
+      {title}
+    </h3>
+  </div>
+
+  <div class:list={["flex flex-col", featured ? "lg:flex-1 lg:pt-1" : ""]}>
+    <p
+      class:list={[
+        "text-pretty text-sm leading-relaxed text-mist",
+        featured ? "mt-5 lg:mt-0 lg:text-base" : "mt-4 flex-1",
+      ]}
+    >
+      {description}
+    </p>
+
+    {
+      tags.length > 0 && (
+        <ul class="mt-6 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-[11px] tracking-wide text-fog/70">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <span
+      class="mt-7 inline-flex items-center gap-2 font-mono text-xs text-mist transition-colors duration-300 group-hover:text-accent"
+    >
+      <span class="h-px w-5 bg-current opacity-50"></span>
+      {linkLabel}
+    </span>
+  </div>
+</a>

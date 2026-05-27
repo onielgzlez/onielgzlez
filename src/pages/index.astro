@@ -1,0 +1,423 @@
+---
+import "../styles/global.css";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const navLinks = [
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Stack", href: "#stack" },
+  { label: "Experiencia", href: "#experiencia" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+const projects = [
+  {
+    index: "01",
+    title: "TaskFlow",
+    description:
+      "Plataforma SaaS multi-tenant de gestión de proyectos para equipos de software (~25k líneas de código). Incluye un servidor MCP nativo para permitir a agentes de IA (Claude, Cursor) ejecutar tareas de forma autónoma mediante +42 endpoints protegidos por RLS.",
+    tags: ["Astro", "Tailwind", "PostgreSQL", "Supabase", "MCP"],
+    linkLabel: "flow.onidevti.dev",
+    linkUrl: "flow.onidevti.dev",
+    featured: true,
+  },
+  {
+    index: "02",
+    title: "TrakkerAi",
+    description:
+      "Aplicación nativa en Android diseñada para el sector gastronómico. Aplica lógica de negocio robusta y procedimientos operativos estándar para optimizar la gestión culinaria.",
+    tags: ["Kotlin", "Supabase"],
+    linkLabel: "Ver en Google Play",
+    linkUrl: "play.google.com",
+  },
+  {
+    index: "03",
+    title: "The Cuban Touch",
+    description:
+      "Diseño, desarrollo y lanzamiento de aplicación web como MVP listo para producción.",
+    tags: ["Astro", "React", "Supabase", "Vercel"],
+    linkLabel: "thecubantouch.com.br",
+    linkUrl: "thecubantouch.com.br",
+  },
+];
+
+const stack = [
+  {
+    label: "Lenguajes",
+    items: ["PHP", "JavaScript", "TypeScript", "Java", "Ruby", "Kotlin"],
+  },
+  {
+    label: "Frameworks",
+    items: ["Laravel", "Astro", "Vue.js", "Tailwind CSS", "React", "Node"],
+  },
+  {
+    label: "Bases de Datos & BaaS",
+    items: ["PostgreSQL", "MySQL", "Supabase", "Redis"],
+  },
+  {
+    label: "DevOps & Tools",
+    items: ["Docker", "Linux SysAdmin", "Dokploy", "Cursor", "MCP", "Git"],
+  },
+];
+
+const experience = [
+  {
+    company: "ONIDEV TI LTDA",
+    role: "Technology Leader / Founder",
+    period: "Actual",
+    current: true,
+  },
+  {
+    company: "FIRSTDUE",
+    role: "FullStack Developer",
+    period: "2022 — Presente",
+    current: false,
+  },
+  {
+    company: "KUNAPAK",
+    role: "FullStack Developer & Architect",
+    period: "2018 — 2024",
+    current: false,
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="description"
+      content="Oniel González — Senior Full-Stack Developer & Tech Lead. Más de 10 años diseñando arquitecturas escalables, aplicaciones web de alto rendimiento e integraciones con IA."
+    />
+    <meta name="author" content="Oniel González" />
+    <title>Oniel González — Senior Full-Stack Developer & Tech Lead</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply saved theme before paint to avoid flash. Dark is the default. -->
+    <script is:inline>
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.classList.add("light");
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- fixed grain overlay -->
+    <div class="grain pointer-events-none fixed inset-0 z-50" aria-hidden="true"></div>
+
+    <!-- ============================ HEADER ============================ -->
+    <header
+      class="fixed inset-x-0 top-0 z-40 border-b border-line bg-ink-950/70 backdrop-blur-xl"
+    >
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+        aria-label="Navegación principal"
+      >
+        <a href="#top" class="group flex items-center gap-1 font-display text-lg font-medium tracking-tight">
+          <span class="text-fog">Oniel</span><span class="text-accent">.dev</span>
+        </a>
+
+        <ul class="hidden items-center gap-8 md:flex">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="relative font-mono text-xs tracking-wide text-mist transition-colors duration-300 hover:text-fog after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Cambiar tema claro/oscuro"
+            class="grid h-9 w-9 place-items-center rounded-full border border-line text-mist transition-all duration-300 hover:border-accent/50 hover:text-accent"
+          >
+            <svg data-icon="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg data-icon="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <a
+            href="#contacto"
+            class="rounded-full border border-accent/30 bg-accent/5 px-4 py-1.5 font-mono text-xs text-accent transition-all duration-300 hover:border-accent/60 hover:bg-accent/10"
+          >
+            Hablemos
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ============================ HERO ============================ -->
+      <section class="relative overflow-hidden px-6 pb-24 pt-36 sm:pt-44">
+        <div class="bg-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
+        <div
+          class="glow pointer-events-none absolute -top-40 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 opacity-50 blur-2xl"
+          aria-hidden="true"
+        >
+        </div>
+
+        <div class="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <p
+              class="load-in mb-7 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-4 py-1.5 font-mono text-xs text-mist"
+              style="animation-delay: 0.05s"
+            >
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+              </span>
+              Disponible para nuevos proyectos
+            </p>
+
+            <h1 class="font-display text-[2.6rem] font-medium leading-[1.04] tracking-tight text-fog sm:text-6xl lg:text-[4.1rem]">
+              <span class="load-in block text-mist text-2xl font-normal sm:text-3xl" style="animation-delay: 0.12s">Hola, soy</span>
+              <span class="load-in block italic text-accent" style="animation-delay: 0.2s">Oniel González.</span>
+              <span class="load-in mt-2 block text-fog" style="animation-delay: 0.3s">
+                Senior Full-Stack Developer <span class="text-mist">&amp;</span> Tech Lead.
+              </span>
+            </h1>
+
+            <p
+              class="load-in mt-8 max-w-xl text-pretty text-base leading-relaxed text-mist sm:text-lg"
+              style="animation-delay: 0.42s"
+            >
+              Más de 10 años de experiencia diseñando arquitecturas escalables,
+              desarrollando aplicaciones web de alto rendimiento e integrando
+              soluciones con Inteligencia Artificial.
+            </p>
+
+            <div class="load-in mt-10 flex flex-wrap items-center gap-4" style="animation-delay: 0.54s">
+              <a
+                href="#proyectos"
+                class="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_0_0_0_rgba(94,234,212,0.5)] transition-all duration-300 hover:bg-accent-soft hover:shadow-[0_0_28px_-4px_rgba(94,234,212,0.55)]"
+              >
+                Ver Proyectos
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-y-0.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </a>
+              <a
+                href="/Oniel-Gonzalez-CV.pdf"
+                download
+                class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-fog transition-all duration-300 hover:border-accent/40 hover:text-accent"
+              >
+                Descargar CV
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- decorative terminal -->
+          <div
+            class="load-in relative hidden lg:block"
+            style="animation-delay: 0.66s"
+            aria-hidden="true"
+          >
+            <div class="overflow-hidden rounded-2xl border border-line bg-ink-900/80 shadow-2xl shadow-black/40 backdrop-blur">
+              <div class="flex items-center gap-2 border-b border-line px-4 py-3">
+                <span class="h-3 w-3 rounded-full bg-fog/15"></span>
+                <span class="h-3 w-3 rounded-full bg-fog/15"></span>
+                <span class="h-3 w-3 rounded-full bg-accent/50"></span>
+                <span class="ml-3 font-mono text-[11px] text-mist">~/oniel.dev</span>
+              </div>
+              <div class="space-y-3 p-6 font-mono text-[13px] leading-relaxed">
+                <p><span class="text-accent">$</span> <span class="text-mist">whoami</span></p>
+                <p class="text-fog/80">oniel — senior full-stack & tech lead</p>
+                <p class="pt-1"><span class="text-accent">$</span> <span class="text-mist">stack --top</span></p>
+                <p class="text-fog/80">laravel · astro · postgresql · supabase</p>
+                <p class="pt-1"><span class="text-accent">$</span> <span class="text-mist">ai --integrations</span></p>
+                <p class="text-fog/80">mcp servers · llm agents · rls</p>
+                <p class="flex items-center pt-1">
+                  <span class="text-accent">$</span>
+                  <span class="ml-2 inline-block h-4 w-2 animate-pulse bg-accent/70"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PROYECTOS ============================ -->
+      <section id="proyectos" class="scroll-mt-24 px-6 py-24">
+        <div class="mx-auto max-w-6xl">
+          <header class="reveal mb-14 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span class="font-mono text-xs tracking-[0.25em] text-accent/70">01 — PORTAFOLIO</span>
+              <h2 class="mt-3 font-display text-4xl font-medium tracking-tight text-fog sm:text-5xl">
+                Proyectos destacados
+              </h2>
+            </div>
+            <p class="max-w-xs text-sm text-mist">
+              Una selección de productos llevados de la idea a producción.
+            </p>
+          </header>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            {projects.map((p) => <ProjectCard {...p} />)}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ STACK ============================ -->
+      <section id="stack" class="scroll-mt-24 px-6 py-24">
+        <div class="mx-auto max-w-6xl">
+          <header class="reveal mb-14">
+            <span class="font-mono text-xs tracking-[0.25em] text-accent/70">02 — TECNOLOGÍAS</span>
+            <h2 class="mt-3 font-display text-4xl font-medium tracking-tight text-fog sm:text-5xl">
+              Tech Stack
+            </h2>
+          </header>
+
+          <div class="reveal divide-y divide-line border-y border-line">
+            {
+              stack.map((group) => (
+                <div class="grid items-center gap-5 py-7 sm:grid-cols-[220px_1fr]">
+                  <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-mist">
+                    {group.label}
+                  </h3>
+                  <ul class="flex flex-wrap gap-2.5">
+                    {group.items.map((item) => (
+                      <li class="rounded-lg border border-line bg-ink-800/60 px-3.5 py-1.5 text-sm text-fog/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ EXPERIENCIA ============================ -->
+      <section id="experiencia" class="scroll-mt-24 px-6 py-24">
+        <div class="mx-auto max-w-6xl">
+          <header class="reveal mb-14">
+            <span class="font-mono text-xs tracking-[0.25em] text-accent/70">03 — TRAYECTORIA</span>
+            <h2 class="mt-3 font-display text-4xl font-medium tracking-tight text-fog sm:text-5xl">
+              Experiencia
+            </h2>
+          </header>
+
+          <ol class="reveal relative ml-2 border-l border-line">
+            {
+              experience.map((job) => (
+                <li class="relative pb-12 pl-10 last:pb-0">
+                  <span
+                    class:list={[
+                      "absolute -left-[7px] top-2 h-3.5 w-3.5 rounded-full border-2",
+                      job.current
+                        ? "border-accent bg-accent shadow-[0_0_16px_2px_rgba(94,234,212,0.5)]"
+                        : "border-mist/50 bg-ink-950",
+                    ]}
+                  />
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h3 class="font-display text-2xl font-medium text-fog">
+                      {job.company}
+                    </h3>
+                    <span
+                      class:list={[
+                        "font-mono text-xs",
+                        job.current
+                          ? "rounded-full bg-accent/10 px-2.5 py-0.5 text-accent"
+                          : "text-mist",
+                      ]}
+                    >
+                      {job.period}
+                    </span>
+                  </div>
+                  <p class="mt-1.5 text-mist">{job.role}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============================ CONTACTO ============================ -->
+      <section id="contacto" class="scroll-mt-24 px-6 py-24">
+        <div class="reveal relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-line bg-gradient-to-b from-ink-900 to-ink-850 px-8 py-20 text-center sm:px-12">
+          <div
+            class="glow pointer-events-none absolute -bottom-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 opacity-40 blur-2xl"
+            aria-hidden="true"
+          >
+          </div>
+
+          <span class="font-mono text-xs tracking-[0.25em] text-accent/70">04 — CONTACTO</span>
+          <h2 class="mx-auto mt-4 max-w-2xl font-display text-4xl font-medium leading-tight tracking-tight text-fog sm:text-6xl">
+            ¿Construimos algo <span class="italic text-accent">extraordinario</span>?
+          </h2>
+
+          <a
+            href="mailto:oniel.gzlez@gmail.com"
+            class="group mt-10 inline-flex items-center gap-3 font-display text-xl text-fog transition-colors duration-300 hover:text-accent sm:text-2xl"
+          >
+            <span class="border-b border-line pb-1 transition-colors duration-300 group-hover:border-accent">oniel.gzlez@gmail.com</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+
+          <div class="mt-10 flex items-center justify-center gap-4">
+            <a
+              href="https://linkedin.com/in/onielgzlez"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-xs text-mist transition-all duration-300 hover:border-accent/40 hover:text-accent"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="border-t border-line px-6 py-8">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+        <p class="font-mono text-xs text-mist">© {year} Oniel González</p>
+        <p class="font-mono text-xs text-mist">
+          Hecho con <span class="text-accent">Astro</span> &amp; <span class="text-accent">Tailwind CSS</span>
+        </p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      document.getElementById("theme-toggle")?.addEventListener("click", () => {
+        const isLight = document.documentElement.classList.toggle("light");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      });
+    </script>
+  </body>
+</html>

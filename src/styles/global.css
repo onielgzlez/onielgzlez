@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens                                                      */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Typography */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Ink — near-black with a cool green undertone */
+  --color-ink-950: #060a09;
+  --color-ink-900: #0a100e;
+  --color-ink-850: #0d1411;
+  --color-ink-800: #111a16;
+  --color-ink-700: #18241f;
+
+  /* Text */
+  --color-fog: #d6e0dc;
+  --color-mist: #889a93;
+
+  /* Accent — teal / emerald */
+  --color-accent: #5eead4;
+  --color-accent-soft: #2dd4bf;
+  --color-accent-deep: #0d9488;
+
+  /* Semantic — adapt across themes */
+  --color-on-accent: #060a09;
+  --color-line: rgb(255 255 255 / 0.09);
+  --color-surface: rgb(255 255 255 / 0.03);
+  --color-surface-strong: rgb(255 255 255 / 0.06);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Light theme — overrides the design tokens                          */
+/* ------------------------------------------------------------------ */
+:root.light {
+  --color-ink-950: #f4f7f5;
+  --color-ink-900: #ffffff;
+  --color-ink-850: #eef2f0;
+  --color-ink-800: #e8edeb;
+  --color-ink-700: #d5dcd9;
+
+  --color-fog: #0b1310;
+  --color-mist: #566a62;
+
+  --color-accent: #0f766e;
+  --color-accent-soft: #0d9488;
+  --color-accent-deep: #14b8a6;
+
+  --color-on-accent: #ffffff;
+  --color-line: rgb(11 19 16 / 0.12);
+  --color-surface: rgb(11 19 16 / 0.03);
+  --color-surface-strong: rgb(11 19 16 / 0.06);
+}
+
+/* Theme-toggle icon visibility */
+:root.light [data-icon="sun"] {
+  display: none;
+}
+:root:not(.light) [data-icon="moon"] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-ink-950);
+  color: var(--color-fog);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+  border-radius: 99px;
+  border: 2px solid var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-deep);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Atmosphere — grid + grain overlays                                 */
+/* ------------------------------------------------------------------ */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-accent) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-accent) 6%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+}
+
+/* Accent glow used behind the hero */
+.glow {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--color-accent) 35%, transparent),
+    transparent
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Motion                                                             */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero — staggered load-in */
+  .load-in {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Lower sections — scroll-driven reveal (no JS), with safe fallback */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
