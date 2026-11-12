@@ -13,6 +13,16 @@ const navLinks = [
 const projects = [
   {
     index: "01",
+    title: "Sabor na Medida Delivery",
+    description:
+      "Plataforma completa de delivery de comida con un atendente de IA en WhatsApp (orquestado con n8n + cascada multi-LLM) que toma, crea y valida pedidos conversando, 24/7. Incluye tienda multi-idioma, pagos PIX (Mercado Pago), panel administrativo en tiempo real, seguimiento de pedido e impresión de comanda térmica.",
+    tags: ["Astro", "React", "Supabase", "n8n", "IA", "WhatsApp"],
+    linkLabel: "sabornamedidadelivery.com.br",
+    linkUrl: "www.sabornamedidadelivery.com.br",
+    featured: true,
+  },
+  {
+    index: "02",
     title: "TaskFlow",
     description:
       "Plataforma SaaS multi-tenant de gestión de proyectos para equipos de software (~25k líneas de código). Incluye un servidor MCP nativo para permitir a agentes de IA (Claude, Cursor) ejecutar tareas de forma autónoma mediante +42 endpoints protegidos por RLS.",
@@ -22,7 +32,7 @@ const projects = [
     featured: true,
   },
   {
-    index: "02",
+    index: "03",
     title: "TrakkerAi",
     description:
       "Aplicación nativa en Android diseñada para el sector gastronómico. Aplica lógica de negocio robusta y procedimientos operativos estándar para optimizar la gestión culinaria.",
@@ -31,7 +41,7 @@ const projects = [
     linkUrl: "play.google.com/store/apps/details?id=com.onidevti.trakkerai",
   },
   {
-    index: "03",
+    index: "04",
     title: "The Cuban Touch",
     description:
       "Diseño, desarrollo y lanzamiento de aplicación web como MVP listo para producción.",
@@ -40,13 +50,59 @@ const projects = [
     linkUrl: "thecubantouch.com.br",
   },
   {
-    index: "04",
-    title: "Sabor na Medida Delivery",
+    index: "05",
+    title: "MCM — MikroTik Network Manager",
     description:
-      "Plataforma completa de delivery de comida con un atendente de IA en WhatsApp (orquestado con n8n + cascada multi-LLM) que toma, crea y valida pedidos conversando, 24/7. Incluye tienda multi-idioma, pagos PIX (Mercado Pago), panel administrativo en tiempo real, seguimiento de pedido e impresión de comanda térmica.",
-    tags: ["Astro", "React", "Supabase", "n8n", "IA", "WhatsApp"],
-    linkLabel: "sabornamedidadelivery.com.br",
-    linkUrl: "www.sabornamedidadelivery.com.br",
+      "Suite integral para orquestación, aprovisionamiento y QoS en routers MikroTik (RouterOS). Combina cliente desktop nativo (macOS/Windows), panel web y agente permanente headless en Oracle VPS. Gestiona colas simples, Queue Tree y grupos PCQ con políticas de aislamiento, escaneo de frecuencias inalámbricas, topología de red y respaldos SFTP cifrados.",
+    tags: ["Python", "FastAPI", "RouterOS", "SQLite", "Paramiko", "WireGuard", "PyInstaller"],
+    linkLabel: "github.com/onielgzlez",
+    linkUrl: "github.com/onielgzlez",
+    featured: true,
+  },
+  {
+    index: "06",
+    title: "Hermes — Autonomous Agent & Ops",
+    description:
+      "Plataforma de agentes autónomos y observabilidad para infraestructura en Oracle Cloud. Orquesta tareas críticas mediante systemd timers, monitores de host y seguridad preventiva (Fail2Ban/SSH). Integra un bridge bidireccional para WhatsApp y Telegram, centralizando alertas y eventos de red de toda la flota.",
+    tags: ["Python", "Node.js", "Docker", "Systemd", "Telegram API", "WhatsApp", "Oracle Cloud"],
+    linkLabel: "github.com/onielgzlez",
+    linkUrl: "github.com/onielgzlez",
+  },
+  {
+    index: "07",
+    title: "Solarman Energy Monitor",
+    description:
+      "Sistema de telemetría IoT en tiempo real para inversores solares fotovoltaicos y bancos de almacenamiento con baterías mediante protocolo Modbus/uModbus. Integrado con Hermes para recolección continua de métricas, análisis de generación/consumo y despacho de alertas tempranas ante cortes en la red.",
+    tags: ["Python", "Modbus", "IoT", "Solar Telemetry", "Hermes"],
+    linkLabel: "github.com/onielgzlez",
+    linkUrl: "github.com/onielgzlez",
+  },
+  {
+    index: "08",
+    title: "LTE Control Center",
+    description:
+      "Panel local de telemetría celular y gestión SMS para módems Huawei LTE (B311-221) accesible por LAN y WireGuard. Supervisa métricas de radiofrecuencia (RSRP, RSRQ, SINR), bandas y tráfico en tiempo real, integrando alertas automatizadas a Telegram ante caídas de enlace o nuevos mensajes.",
+    tags: ["FastAPI", "Python", "SQLite", "Telegram API", "WireGuard"],
+    linkLabel: "github.com/onielgzlez",
+    linkUrl: "github.com/onielgzlez",
+  },
+  {
+    index: "09",
+    title: "D&C Decore & Casa",
+    description:
+      "Plataforma e-commerce trilingüe (pt-BR, es, en) de muebles y decoración. Integra catálogo dinámico, checkout con cupones y fidelidad, notificaciones transaccionales y panel de control administrativo integral.",
+    tags: ["Astro", "React", "Tailwind", "Supabase", "Vercel"],
+    linkLabel: "dc-decore-casa.vercel.app",
+    linkUrl: "dc-decore-casa.vercel.app",
+  },
+  {
+    index: "10",
+    title: "CLAVE — Voice AI Assistant",
+    description:
+      "Asistente de voz autónomo para macOS inspirado en JARVIS. Orquesta modelos locales de reconocimiento de voz (Whisper) y síntesis de habla (Piper) con Claude para ejecutar comandos de sistema (batería, volumen, brillo, red), control de ventanas, domótica y automatizaciones por voz.",
+    tags: ["Python", "Claude API", "Whisper", "Piper TTS", "macOS"],
+    linkLabel: "github.com/onielgzlez",
+    linkUrl: "github.com/onielgzlez",
     featured: true,
   },
 ];
@@ -54,19 +110,19 @@ const projects = [
 const stack = [
   {
     label: "Lenguajes",
-    items: ["PHP", "JavaScript", "TypeScript", "Java", "Ruby", "Kotlin"],
+    items: ["PHP", "JavaScript", "TypeScript", "Python", "Java", "Ruby", "Kotlin"],
   },
   {
-    label: "Frameworks",
-    items: ["Laravel", "Astro", "Vue.js", "Tailwind CSS", "React", "Node"],
+    label: "Frameworks & Protocolos",
+    items: ["Laravel", "Astro", "FastAPI", "React", "Vue.js", "Tailwind CSS", "Node", "Modbus"],
   },
   {
     label: "Bases de Datos & BaaS",
-    items: ["PostgreSQL", "MySQL", "Supabase", "Redis"],
+    items: ["PostgreSQL", "MySQL", "Supabase", "SQLite", "Redis"],
   },
   {
-    label: "DevOps & Tools",
-    items: ["Docker", "Linux SysAdmin", "Dokploy", "Cursor", "MCP", "Git"],
+    label: "DevOps, Redes & Tools",
+    items: ["Docker", "Linux SysAdmin", "MikroTik RouterOS", "WireGuard", "Dokploy", "n8n", "Cursor", "MCP", "Git"],
   },
 ];
 
@@ -77,7 +133,8 @@ const experience = [
     period: "Actual",
     current: true,
     details: [
-      "Lidero la dirección técnica y la arquitectura de software para proyectos de clientes independientes y despliegues de productos internos.",
+      "Lidero la dirección técnica, arquitectura e infraestructura de software para clientes independientes y productos internos de alta disponibilidad.",
+      "Diseño y opero la plataforma autónoma de observabilidad y agentes de IA (Hermes) en Oracle Cloud, integrando telemetría de energía solar (Solarman), control celular (LTE) y gestión avanzada de redes MikroTik (MCM).",
       "Gestiono entornos de desarrollo de ciclo completo, resolviendo conflictos complejos de dependencias de paquetes y ejecutando migraciones fluidas de entorno a Laravel 13.",
     ],
   },
@@ -316,9 +373,9 @@ const year = new Date().getFullYear();
                 <p><span class="text-accent">$</span> <span class="text-mist">whoami</span></p>
                 <p class="text-fog/80">oniel — senior full-stack & tech lead</p>
                 <p class="pt-1"><span class="text-accent">$</span> <span class="text-mist">stack --top</span></p>
-                <p class="text-fog/80">laravel · astro · postgresql · supabase</p>
+                <p class="text-fog/80">laravel · astro · python · supabase · mikrotik</p>
                 <p class="pt-1"><span class="text-accent">$</span> <span class="text-mist">ai --integrations</span></p>
-                <p class="text-fog/80">mcp servers · llm agents · rls</p>
+                <p class="text-fog/80">mcp servers · hermes agent · n8n · whisper</p>
                 <p class="flex items-center pt-1">
                   <span class="text-accent">$</span>
                   <span class="ml-2 inline-block h-4 w-2 animate-pulse bg-accent/70"></span>
