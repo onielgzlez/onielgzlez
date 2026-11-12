@@ -4,7 +4,7 @@ Portafolio personal de Oniel González — Senior Full-Stack Developer & Tech Le
 
 ## Stack
 
-- **Astro 6** — framework de sitios estáticos con islands architecture
+- **Astro 7** — framework de sitios estáticos con islands architecture
 - **Tailwind CSS v4** — vía el plugin de Vite (`@tailwindcss/vite`)
 - **pnpm** — gestor de paquetes
 

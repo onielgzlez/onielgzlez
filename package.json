@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "astro": "^6.3.7"
+    "astro": "^7.4.10"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "tailwindcss": "^4.3.0"
+    "@tailwindcss/vite": "^4.3.5",
+    "tailwindcss": "^4.3.5"
   },
-  "packageManager": "pnpm@11.3.0+sha512.2c403d6594527287672b1f7056343a1f7c3634036a67ffabfcc2b3d7595d843768f8787148d1b57cf7956c90606bbd192857c363af19e96d2d0ec9ec5741d215"
+  "packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3"
 }
