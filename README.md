@@ -24,7 +24,11 @@ src/
 ├── components/
 │   └── ProjectCard.astro    # tarjeta de proyecto
 ├── pages/
-│   └── index.astro          # página principal
+│   ├── index.astro          # entrada con detección de idioma
+│   └── [locale].astro       # rutas /en/, /es/ y /pt-br/
+├── layouts/
+│   └── Portfolio.astro      # plantilla compartida
+├── i18n/                    # diccionarios y tipos de locales
 └── styles/
     └── global.css           # estilos globales y tema
 public/                      # assets estáticos (favicon, etc.)
@@ -34,3 +38,26 @@ astro.config.mjs             # configuración de Astro + Tailwind
 ## Despliegue
 
 El sitio se publica en [onidevti.dev](https://onidevti.dev). El comando `pnpm build` produce los archivos estáticos en `dist/`, listos para servir desde cualquier hosting estático.
+
+## Idiomas
+
+El sitio genera `/en/`, `/es/` y `/pt-br/` como páginas estáticas completas.
+La entrada `/` consulta `navigator.languages` (o `navigator.language`) en orden
+de preferencia: `es-*` corresponde a español, `en-*` a inglés y `pt-*` a
+portugués de Brasil. Si no encuentra un idioma compatible, utiliza inglés.
+Sin JavaScript, la entrada muestra inglés y permite cambiar de idioma mediante enlaces.
+
+Los enlaces directos a un locale respetan su idioma; la detección solo ocurre en `/`.
+El selector permite cambiar de idioma sin guardar una preferencia persistente.
+Las redirecciones conservan los parámetros de consulta y el fragmento de la URL.
+Los PDF descargables conservan sus archivos originales.
+
+Para editar textos, utiliza `src/i18n/{en,es,pt-br}.json`. Cada página incluye
+`lang`, canonical y alternativas `hreflang`.
+
+Verificación de rutas, contenido y detección de idioma:
+
+```bash
+pnpm build
+node --test tests/locales.test.mjs
+```

@@ -1,0 +1,305 @@
+{
+  "navLinks": [
+    {
+      "label": "Projetos",
+      "href": "#proyectos"
+    },
+    {
+      "label": "Stack",
+      "href": "#stack"
+    },
+    {
+      "label": "Experiência",
+      "href": "#experiencia"
+    },
+    {
+      "label": "Contato",
+      "href": "#contacto"
+    }
+  ],
+  "projects": [
+    {
+      "index": "01",
+      "title": "Sabor na Medida Delivery",
+      "description": "Plataforma completa de delivery de comida com um atendente de IA no WhatsApp (orquestrado com n8n e uma cascata multi-LLM) que recebe, cria e valida pedidos por conversa, 24 horas por dia. Inclui loja multilíngue, pagamentos PIX (Mercado Pago), painel administrativo em tempo real, acompanhamento de pedidos e impressão de comandas térmicas.",
+      "tags": [
+        "Astro",
+        "React",
+        "Supabase",
+        "n8n",
+        "IA",
+        "WhatsApp"
+      ],
+      "linkLabel": "sabornamedidadelivery.com.br",
+      "linkUrl": "www.sabornamedidadelivery.com.br",
+      "featured": true
+    },
+    {
+      "index": "02",
+      "title": "TaskFlow",
+      "description": "Plataforma SaaS multi-tenant de gestão de projetos para equipes de software (~25 mil linhas de código). Inclui um servidor MCP nativo que permite a agentes de IA (Claude, Cursor) executar tarefas de forma autônoma por meio de mais de 42 endpoints protegidos por RLS.",
+      "tags": [
+        "Astro",
+        "Tailwind",
+        "PostgreSQL",
+        "Supabase",
+        "MCP"
+      ],
+      "linkLabel": "flow.onidevti.dev",
+      "linkUrl": "flow.onidevti.dev",
+      "featured": true
+    },
+    {
+      "index": "03",
+      "title": "TrakkerAi",
+      "description": "Aplicativo nativo para Android desenvolvido para o setor gastronômico. Aplica lógica de negócio robusta e procedimentos operacionais padrão para otimizar a gestão culinária.",
+      "tags": [
+        "Kotlin",
+        "Supabase"
+      ],
+      "linkLabel": "Ver no Google Play",
+      "linkUrl": "play.google.com/store/apps/details?id=com.onidevti.trakkerai"
+    },
+    {
+      "index": "04",
+      "title": "The Cuban Touch",
+      "description": "Design, desenvolvimento e lançamento de uma aplicação web como MVP pronto para produção.",
+      "tags": [
+        "Astro",
+        "React",
+        "Supabase",
+        "Vercel"
+      ],
+      "linkLabel": "thecubantouch.com.br",
+      "linkUrl": "thecubantouch.com.br"
+    },
+    {
+      "index": "05",
+      "title": "MCM — MikroTik Network Manager",
+      "description": "Suíte completa para orquestração, provisionamento e QoS em roteadores MikroTik (RouterOS). Combina cliente desktop nativo (macOS/Windows), painel web e agente headless permanente em um VPS Oracle. Gerencia filas simples, Queue Tree e grupos PCQ com políticas de isolamento, varredura de frequências sem fio, topologia de rede e backups SFTP criptografados.",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "RouterOS",
+        "SQLite",
+        "Paramiko",
+        "WireGuard",
+        "PyInstaller"
+      ],
+      "linkLabel": "github.com/onielgzlez",
+      "linkUrl": "github.com/onielgzlez",
+      "featured": true
+    },
+    {
+      "index": "06",
+      "title": "Hermes — Autonomous Agent & Ops",
+      "description": "Plataforma de agentes autônomos e observabilidade para infraestrutura na Oracle Cloud. Orquestra tarefas críticas por meio de systemd timers, monitores de host e segurança preventiva (Fail2Ban/SSH). Integra uma ponte bidirecional para WhatsApp e Telegram, centralizando alertas e eventos de rede de toda a frota.",
+      "tags": [
+        "Python",
+        "Node.js",
+        "Docker",
+        "Systemd",
+        "Telegram API",
+        "WhatsApp",
+        "Oracle Cloud"
+      ],
+      "linkLabel": "github.com/onielgzlez",
+      "linkUrl": "github.com/onielgzlez"
+    },
+    {
+      "index": "07",
+      "title": "Solarman Energy Monitor",
+      "description": "Sistema de telemetria IoT em tempo real para inversores solares fotovoltaicos e bancos de armazenamento com baterias via protocolo Modbus/uModbus. Integrado ao Hermes para coleta contínua de métricas, análise de geração/consumo e envio de alertas antecipados em caso de quedas na rede elétrica.",
+      "tags": [
+        "Python",
+        "Modbus",
+        "IoT",
+        "Solar Telemetry",
+        "Hermes"
+      ],
+      "linkLabel": "github.com/onielgzlez",
+      "linkUrl": "github.com/onielgzlez"
+    },
+    {
+      "index": "08",
+      "title": "LTE Control Center",
+      "description": "Painel local de telemetria celular e gestão de SMS para modems Huawei LTE (B311-221), acessível por LAN e WireGuard. Monitora métricas de radiofrequência (RSRP, RSRQ, SINR), bandas e tráfego em tempo real, integrando alertas automatizados no Telegram em caso de queda de conexão ou novas mensagens.",
+      "tags": [
+        "FastAPI",
+        "Python",
+        "SQLite",
+        "Telegram API",
+        "WireGuard"
+      ],
+      "linkLabel": "github.com/onielgzlez",
+      "linkUrl": "github.com/onielgzlez"
+    },
+    {
+      "index": "09",
+      "title": "D&C Decore & Casa",
+      "description": "Plataforma de e-commerce trilíngue (pt-BR, es, en) de móveis e decoração. Integra catálogo dinâmico, checkout com cupons e fidelidade, notificações transacionais e painel administrativo completo.",
+      "tags": [
+        "Astro",
+        "React",
+        "Tailwind",
+        "Supabase",
+        "Vercel"
+      ],
+      "linkLabel": "dc-decore-casa.vercel.app",
+      "linkUrl": "dc-decore-casa.vercel.app"
+    },
+    {
+      "index": "10",
+      "title": "CLAVE — Voice AI Assistant",
+      "description": "Assistente de voz autônomo para macOS inspirado no JARVIS. Orquestra modelos locais de reconhecimento de voz (Whisper) e síntese de fala (Piper) com Claude para executar comandos do sistema (bateria, volume, brilho, rede), controle de janelas, automação residencial e fluxos por voz.",
+      "tags": [
+        "Python",
+        "Claude API",
+        "Whisper",
+        "Piper TTS",
+        "macOS"
+      ],
+      "linkLabel": "github.com/onielgzlez",
+      "linkUrl": "github.com/onielgzlez",
+      "featured": true
+    }
+  ],
+  "stack": [
+    {
+      "label": "Linguagens",
+      "items": [
+        "PHP",
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "Java",
+        "Ruby",
+        "Kotlin"
+      ]
+    },
+    {
+      "label": "Frameworks e Protocolos",
+      "items": [
+        "Laravel",
+        "Astro",
+        "FastAPI",
+        "React",
+        "Vue.js",
+        "Tailwind CSS",
+        "Node",
+        "Modbus"
+      ]
+    },
+    {
+      "label": "Bancos de Dados e BaaS",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "Supabase",
+        "SQLite",
+        "Redis"
+      ]
+    },
+    {
+      "label": "DevOps, Redes e Ferramentas",
+      "items": [
+        "Docker",
+        "Linux SysAdmin",
+        "MikroTik RouterOS",
+        "WireGuard",
+        "Dokploy",
+        "n8n",
+        "Cursor",
+        "MCP",
+        "Git"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "ONIDEV TI LTDA",
+      "role": "Technology Leader / Founder",
+      "period": "Atual",
+      "current": true,
+      "details": [
+        "Lidero a direção técnica, a arquitetura e a infraestrutura de software para clientes independentes e produtos internos de alta disponibilidade.",
+        "Projeto e opero a plataforma autônoma de observabilidade e agentes de IA (Hermes) na Oracle Cloud, integrando telemetria de energia solar (Solarman), controle celular (LTE) e gestão avançada de redes MikroTik (MCM).",
+        "Gerencio ambientes de desenvolvimento de ciclo completo, resolvendo conflitos complexos de dependências de pacotes e executando migrações de ambiente para Laravel 13 de forma fluida."
+      ]
+    },
+    {
+      "company": "FIRSTDUE",
+      "role": "FullStack Developer",
+      "location": "EUA",
+      "period": "2022 — Presente",
+      "current": false,
+      "details": [
+        "Desenvolvo e escalo produtos de software empresariais para gestão de ativos e estoque.",
+        "Integro APIs complexas de terceiros para impulsionar a automação de dados e a interoperabilidade entre sistemas.",
+        "Atuo como revisor de PRs web, garantindo o cumprimento rigoroso dos padrões de qualidade de código e arquitetura."
+      ]
+    },
+    {
+      "company": "KUNAPAK",
+      "role": "FullStack Developer & Architect",
+      "location": "Chile",
+      "period": "2018 — 2024",
+      "current": false,
+      "details": [
+        "Iniciei e projetei uma importante atualização arquitetural da plataforma Kunapak Admin, com um stack desacoplado de Astro e Laravel para modernizar os fluxos administrativos e otimizar os recursos do sistema.",
+        "Reorganizei a infraestrutura de servidores no Dokploy, migrando de um modelo centralizado para um distribuído ao separar bancos de dados, APIs e aplicações frontend para maximizar a estabilidade.",
+        "Dockerizei toda a suíte de produtos de TI da empresa (Backend, API, Frontend), acelerando a velocidade de desenvolvimento em até 80%.",
+        "Implementei APIs padronizadas, alcançando uma melhoria de 40% na qualidade do produto entregue e um aumento de 25% no desempenho web.",
+        "Projetei integrações com serviços externos como Channel Managers, Booking Engines e Power BI para uma automação de dados sofisticada.",
+        "Implantei e mantive infraestrutura VPS, além de configurar e gerenciar o servidor interno de GitLab."
+      ]
+    },
+    {
+      "company": "SAYEN CONSULTING",
+      "role": "Computer Developer",
+      "location": "Chile",
+      "period": "2023",
+      "current": false,
+      "details": [
+        "Introduzi e implementei ferramentas rigorosas de controle de qualidade de código em todo o departamento de engenharia.",
+        "Supervisionei e mentorei a equipe de desenvolvimento, melhorando o desempenho e acelerando os ciclos de desenvolvimento em mais de 30%.",
+        "Redigi e implementei documentação abrangente para a API do Unidos e os principais sistemas backend."
+      ]
+    },
+    {
+      "company": "GESPRO",
+      "role": "Junior Developer",
+      "location": "Cuba",
+      "period": "2012 — 2015",
+      "current": false,
+      "details": [
+        "Desenvolvi mais de 13 plugins especializados para a suíte Xedro GESPRO, aprimorando os módulos de Gestão de RH, Gestão de Projetos e Tomada de Decisões."
+      ]
+    }
+  ],
+  "ui": {
+    "navigation": "Navegação principal",
+    "theme": "Alternar tema claro/escuro",
+    "talk": "Vamos conversar",
+    "available": "Disponível para novos projetos",
+    "hello": "Olá, sou",
+    "intro": "Mais de 10 anos de experiência projetando arquiteturas escaláveis, desenvolvendo aplicações web de alto desempenho e integrando soluções com Inteligência Artificial.",
+    "viewProjects": "Ver Projetos",
+    "downloadCV": "Baixar CV",
+    "certificate": "Ver certificado",
+    "portfolio": "01 — PORTFÓLIO",
+    "featuredProjects": "Projetos em destaque",
+    "projectsIntro": "Uma seleção de produtos levados da ideia à produção.",
+    "technologies": "02 — TECNOLOGIAS",
+    "techStack": "Stack de tecnologias",
+    "career": "03 — TRAJETÓRIA",
+    "experience": "Experiência",
+    "contact": "04 — CONTATO",
+    "contactStart": "Vamos construir algo",
+    "contactEmphasis": "extraordinário",
+    "contactEnd": "?",
+    "builtWith": "Feito com",
+    "language": "Idioma",
+    "description": "Oniel González — Senior Full-Stack Developer & Tech Lead. Mais de 10 anos projetando arquiteturas escaláveis, aplicações web de alto desempenho e integrações com IA."
+  }
+}

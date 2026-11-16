@@ -1,0 +1,10 @@
+---
+import Portfolio from '../layouts/Portfolio.astro';
+import { locales } from '../i18n';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+---
+<Portfolio locale={locale} />
