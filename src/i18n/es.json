@@ -138,20 +138,6 @@
     },
     {
       "index": "09",
-      "title": "D&C Decore & Casa",
-      "description": "Plataforma e-commerce trilingüe (pt-BR, es, en) de muebles y decoración. Integra catálogo dinámico, checkout con cupones y fidelidad, notificaciones transaccionales y panel de control administrativo integral.",
-      "tags": [
-        "Astro",
-        "React",
-        "Tailwind",
-        "Supabase",
-        "Vercel"
-      ],
-      "linkLabel": "dc-decore-casa.vercel.app",
-      "linkUrl": "dc-decore-casa.vercel.app"
-    },
-    {
-      "index": "10",
       "title": "CLAVE — Voice AI Assistant",
       "description": "Asistente de voz autónomo para macOS inspirado en JARVIS. Orquesta modelos locales de reconocimiento de voz (Whisper) y síntesis de habla (Piper) con Claude para ejecutar comandos de sistema (batería, volumen, brillo, red), control de ventanas, domótica y automatizaciones por voz.",
       "tags": [
