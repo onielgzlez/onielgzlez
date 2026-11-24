@@ -21,7 +21,7 @@
     {
       "index": "01",
       "title": "Sabor na Medida Delivery",
-      "description": "A complete food delivery platform with an AI assistant on WhatsApp (orchestrated with n8n and a multi-LLM cascade) that takes, creates, and validates orders through conversation, 24/7. Includes a multilingual storefront, PIX payments (Mercado Pago), a real-time admin panel, order tracking, and thermal receipt printing.",
+      "description": "End-to-end delivery platform with a multilingual storefront, PIX payments via InfinitePay, multichannel integration with iFood, 99Food, and Keeta via webhooks, a real-time admin panel, order tracking, thermal receipt printing, and a WhatsApp AI assistant (n8n + multi-LLM cascade) that takes and validates orders 24/7.",
       "tags": [
         "Astro",
         "React",
@@ -52,10 +52,12 @@
     {
       "index": "03",
       "title": "TrakkerAi",
-      "description": "A native Android application designed for the food service industry. Applies robust business logic and standard operating procedures to streamline culinary management.",
+      "description": "Native Android application built with Kotlin and Supabase, published on Google Play for expense tracking and budget management, featuring AI-powered automatic expense recognition from images, receipts, and PDF files.",
       "tags": [
         "Kotlin",
-        "Supabase"
+        "Android",
+        "Supabase",
+        "AI"
       ],
       "linkLabel": "View on Google Play",
       "linkUrl": "play.google.com/store/apps/details?id=com.onidevti.trakkerai"
@@ -63,7 +65,7 @@
     {
       "index": "04",
       "title": "The Cuban Touch",
-      "description": "Design, development, and launch of a web application as a production-ready MVP.",
+      "description": "Online food delivery and ordering web platform designed, developed, and launched as a production-ready MVP with a digital menu, shopping cart, and order management.",
       "tags": [
         "Astro",
         "React",
@@ -286,6 +288,7 @@
     "intro": "Over 10 years of experience designing scalable architectures, building high-performance web applications, and integrating Artificial Intelligence solutions.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
+    "cvUrl": "/Oniel-Gonzalez-CV-en.pdf",
     "certificate": "View certificate",
     "portfolio": "01 — PORTFOLIO",
     "featuredProjects": "Featured projects",

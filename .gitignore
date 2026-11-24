@@ -1,6 +1,8 @@
 # build output
 dist/
 temp/
+tmp/
+output/
 # generated types
 .astro/
 # dependencies
